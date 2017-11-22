@@ -9,8 +9,22 @@ export class HeaderComponent implements OnInit {
   @Input()
   list: Array<string>;
 
+  @Input()
+  buttonList: Array<string>;
+
   @Output()
   onMenuClick : EventEmitter<string> = new EventEmitter<string>(); 
+
+  @Output()
+  onButtonItemClick: EventEmitter<number> = new EventEmitter<number>();
+
+  selectedButtonIndex = 0;
+
+  onBtnClick(index){
+    this.onButtonItemClick.emit(index);
+    this.selectedButtonIndex = index;
+  }
+
   constructor() { }
 
   ngOnInit() {

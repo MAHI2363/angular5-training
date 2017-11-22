@@ -8,7 +8,7 @@ import { Employee } from './models/employee';
 })
 export class AppComponent {
   title = 'Angular5 Training';
-  activeView = 'list';
+  activeViewIndex = 0;
   selectedEmployee;
   newEmployee: Employee = new Employee('', null);
   menuList: Array<string> = ['Home', 'About', 'Contact'];
@@ -17,6 +17,9 @@ export class AppComponent {
     new Employee('Ajith', 23),
     new Employee('Rajni', 33)
   ];
+
+  buttons: Array<string> = ['View Employees', 'Add Employee'];
+
 
   onMenuClick(item){
     alert('menu clicked is ' + item);
@@ -40,8 +43,8 @@ export class AppComponent {
     this.employees.push(this.newEmployee);
   }
 
-  selectView(viewName){
-    this.activeView = viewName;
+  selectView(buttonIndex){
+    this.activeViewIndex = buttonIndex;
   }
 
   deleteEmployee(empIndex) {
