@@ -3,11 +3,11 @@
 This is the main section  
 <h2>{{title}}</h2>
 
-<button>View List</button>
-<button>Add Employee</button>
+<button [ngClass]="{ 'active': activeView === 'list' }" (click)="selectView('list')">View List</button>
+<button [ngClass]="{ 'active': activeView === 'addEmployee' }" (click)="selectView('addEmployee')">Add Employee</button>
 
 
-<div>
+<div *ngIf="activeView === 'addEmployee'">
   <h2>Add Employee</h2>
   {{newEmployee | json }}
   <div>
@@ -21,6 +21,7 @@ This is the main section
 </div>
 
 
+<div *ngIf="activeView === 'list'">
 <table>
   <thead>
     <tr>
@@ -31,11 +32,11 @@ This is the main section
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let emp of employees" [ngClass]="{ 'selected' : emp.selected }">
+    <tr *ngFor="let emp of employees; let i = index" [ngClass]="{ 'selected' : emp.selected }">
       <td>{{emp.name}}</td>
       <td>{{emp.age}}</td>
       <td> <button (click)="onSelectEmployee(emp)">View</button> </td>
-      <td><button>Delete </button></td>
+      <td><button (click)="deleteEmployee(i)">Delete</button></td>
     </tr>
   </tbody>
 </table>
@@ -45,5 +46,5 @@ This is the main section
   <p>Name: {{selectedEmployee.name }}</p>
   <p>Age: {{selectedEmployee.age }}</p>
 </div>
-
+</div>
 <app-footer></app-footer>

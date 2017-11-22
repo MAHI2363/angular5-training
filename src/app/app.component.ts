@@ -8,6 +8,7 @@ import { Employee } from './models/employee';
 })
 export class AppComponent {
   title = 'Angular5 Training';
+  activeView = 'list';
   selectedEmployee;
   newEmployee: Employee = new Employee('', null);
   employees: Array<Employee> = [
@@ -27,6 +28,14 @@ export class AppComponent {
 
   addEmployee() {
     this.employees.push(this.newEmployee);
+  }
+
+  selectView(viewName){
+    this.activeView = viewName;
+  }
+
+  deleteEmployee(empIndex) {
+    this.employees.splice(empIndex, 1);
   }
 
 }
