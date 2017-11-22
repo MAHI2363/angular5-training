@@ -1,3 +1,8 @@
-<p>
-  header works!
-</p>
+<div>
+  <ul>
+    <li *ngFor="let menu of list">
+      <a href="" (click)="menuItemClicked($event, menu)">{{menu}}</a>
+    </li>
+  </ul>
+
+</div>

@@ -11,10 +11,20 @@ export class AppComponent {
   activeView = 'list';
   selectedEmployee;
   newEmployee: Employee = new Employee('', null);
+  menuList: Array<string> = ['Home', 'About', 'Contact'];
+  sectionList: Array<string> = ['HR', 'Admin', 'IT'];
   employees: Array<Employee> = [
     new Employee('Ajith', 23),
     new Employee('Rajni', 33)
   ];
+
+  onMenuClick(item){
+    alert('menu clicked is ' + item);
+  }
+
+  onSectionClick(item){
+    alert('section clicked is ' + item);
+  }
 
   clearSelections() {
     this.employees.forEach(emp => emp.selected = false);

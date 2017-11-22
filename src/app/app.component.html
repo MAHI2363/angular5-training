@@ -1,4 +1,6 @@
-<app-header></app-header>
+
+<app-header [list]="menuList" (onMenuClick)="onMenuClick($event)"></app-header>
+
 
 This is the main section  
 <h2>{{title}}</h2>
