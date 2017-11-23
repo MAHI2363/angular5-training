@@ -23,7 +23,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.employees = this.service.getEmployees();
+     const empObservable = this.service.getEmployees();
+     
+     empObservable.subscribe((res: Array<Employee>) => {
+        this.employees = res
+      });
   }
 
   onMenuClick(item){
