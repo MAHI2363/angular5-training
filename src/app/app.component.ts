@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
 
   addEmployee() {
     this.employees.push(this.newEmployee);
+    this.service.employeeListEvent.next(this.employees);
   }
 
   selectView(buttonIndex){

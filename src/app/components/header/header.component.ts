@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { EmployeeService } from '../../employee.service';
 
 @Component({
   selector: 'app-header',
@@ -20,14 +21,20 @@ export class HeaderComponent implements OnInit {
 
   selectedButtonIndex = 0;
 
+  employeeCount = 0;
+
   onBtnClick(index){
     this.onButtonItemClick.emit(index);
     this.selectedButtonIndex = index;
   }
 
-  constructor() { }
+  constructor(private empService: EmployeeService) { }
 
   ngOnInit() {
+    this.empService.employeeListEvent
+          .subscribe(employees => {
+            this.employeeCount = employees.length;
+          });
   }
 
   menuItemClicked(e, menuItem){
