@@ -1,25 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Employee } from './models/employee';
+import { EmployeeService } from './employee.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Angular5 Training';
   activeViewIndex = 0;
   selectedEmployee;
   newEmployee: Employee = new Employee('', null);
   menuList: Array<string> = ['Home', 'About', 'Contact'];
   sectionList: Array<string> = ['HR', 'Admin', 'IT'];
-  employees: Array<Employee> = [
-    new Employee('Ajith', 23),
-    new Employee('Rajni', 33)
-  ];
+  employees: Array<Employee> = [];
 
   buttons: Array<string> = ['View Employees', 'Add Employee'];
 
+  constructor(private service: EmployeeService){
+    
+  }
+
+  ngOnInit(){
+    this.employees = this.service.getEmployees();
+  }
 
   onMenuClick(item){
     alert('menu clicked is ' + item);
