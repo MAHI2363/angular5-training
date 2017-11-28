@@ -10,20 +10,7 @@
 This is the main section  
 <h2>{{title}}</h2>
 
-
-<div *ngIf="activeViewIndex === 1">
-  <h2>Add Employee</h2>
-  {{newEmployee | json }}
-  <div>
-    Name: <input type="text" [(ngModel)]="newEmployee.name">
-    
-  </div>
-  <div>
-    Age: <input type="number" [(ngModel)]="newEmployee.age">
-  </div>
-  <button (click)="addEmployee()">Add</button>
-</div>
-
+<app-add-employee (onSubmit)="addEmployee($event)"  *ngIf="activeViewIndex === 1"></app-add-employee>
 
 <div *ngIf="activeViewIndex === 0">
 <table>

@@ -10,8 +10,7 @@ import { EmployeeService } from './employee.service';
 export class AppComponent implements OnInit {
   title = 'Angular5 Training';
   activeViewIndex = 0;
-  selectedEmployee;
-  newEmployee: Employee = new Employee('', null);
+  selectedEmployee;  
   menuList: Array<string> = ['Home', 'About', 'Contact'];
   sectionList: Array<string> = ['HR', 'Admin', 'IT'];
   employees: Array<Employee> = [];
@@ -48,8 +47,8 @@ export class AppComponent implements OnInit {
     this.selectedEmployee = employee;
   }
 
-  addEmployee() {
-    this.employees.push(this.newEmployee);
+  addEmployee(employee) {
+    this.employees.push(employee);
     this.service.employeeListEvent.next(this.employees);
   }
 
