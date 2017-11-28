@@ -45,10 +45,5 @@ This is the main section
   </tbody>
 </table>
 
-<div *ngIf="selectedEmployee">
-  <h2>Selected Employee</h2>
-  <p>Name: {{selectedEmployee.name }}</p>
-  <p>Age: {{selectedEmployee.age }}</p>
-</div>
-</div>
+<app-selected-employee [employee]="selectedEmployee"></app-selected-employee>
 <app-footer></app-footer>
