@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+
+import { NgForm } from '@angular/forms';
 import { Employee } from '../../models/employee';
 
 @Component({
@@ -7,6 +9,9 @@ import { Employee } from '../../models/employee';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
+  @ViewChild('addForm')
+  myForm: NgForm;
+
   @Output()
   onSubmit: EventEmitter<Employee>  = new EventEmitter<Employee>();
 
@@ -17,7 +22,11 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onAdd(){
-    this.onSubmit.emit(this.newEmployee);
+    if(this.myForm.valid){
+      this.onSubmit.emit(this.myForm.value);
+      this.myForm.reset();
+    }
+    
   }
 
 }
