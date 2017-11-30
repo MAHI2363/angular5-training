@@ -10,6 +10,8 @@ import { EmployeeService } from './employee.service';
 import { SelectedEmployeeComponent } from './components/selected-employee/selected-employee.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { EmpNamePipe } from './emp-name.pipe';
+import { MyColorDirective } from './my-color.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
     FooterComponent,
     SelectedEmployeeComponent,
     AddEmployeeComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    EmpNamePipe,
+    MyColorDirective
   ],
   imports: [
     BrowserModule,

@@ -1,38 +1,51 @@
+<div class="row">
+    <app-header 
+    [list]="menuList" 
+    (onMenuClick)="onMenuClick($event)"
+    [buttonList]="buttons"
+    (onButtonItemClick)="selectView($event)"
+    ></app-header>
+  
+</div>
+<div class="row">
+    {{ 10 | currency }}
 
-<app-header 
-  [list]="menuList" 
-  (onMenuClick)="onMenuClick($event)"
-  [buttonList]="buttons"
-  (onButtonItemClick)="selectView($event)"
-  ></app-header>
+    {{ 1512004779377 | date }}
+    
+    <span myColor abc="green">    This is the main section  </span>
 
+    <h2 myColor="yellow" abc="blue">{{title | lowercase }}</h2>
+    
+    <h2> {{ title | empName:'Welcome':5}}</h2>
+    
+    <app-add-category></app-add-category>
+    
+    <app-add-employee (onSubmit)="addEmployee($event)"  *ngIf="activeViewIndex === 1"></app-add-employee>    
+</div>
+{{employees | json}}
 
-This is the main section  
-<h2>{{title}}</h2>
+<div class="row">
+    <div *ngIf="activeViewIndex === 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>View</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let emp of employees; let i = index" [ngClass]="{ 'selected' : emp.selected }">
+              <td>{{emp.name | empName:'Hi':3}}</td>
+              <td>{{emp.age }}</td>
+              <td> <button (click)="onSelectEmployee(emp)">View</button> </td>
+              <td><button (click)="deleteEmployee(i)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <app-selected-employee [employee]="selectedEmployee"></app-selected-employee>
+</div>
 
-<app-add-category></app-add-category>
-
-<app-add-employee (onSubmit)="addEmployee($event)"  *ngIf="activeViewIndex === 1"></app-add-employee>
-
-<div *ngIf="activeViewIndex === 0">
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>View</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let emp of employees; let i = index" [ngClass]="{ 'selected' : emp.selected }">
-      <td>{{emp.name}}</td>
-      <td>{{emp.age}}</td>
-      <td> <button (click)="onSelectEmployee(emp)">View</button> </td>
-      <td><button (click)="deleteEmployee(i)">Delete</button></td>
-    </tr>
-  </tbody>
-</table>
-
-<app-selected-employee [employee]="selectedEmployee"></app-selected-employee>
 <app-footer></app-footer>
