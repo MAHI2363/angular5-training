@@ -12,6 +12,7 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 import { EmpNamePipe } from './emp-name.pipe';
 import { MyColorDirective } from './my-color.directive';
+import { HeightAdjusterDirective } from './height-adjuster.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MyColorDirective } from './my-color.directive';
     AddEmployeeComponent,
     AddCategoryComponent,
     EmpNamePipe,
-    MyColorDirective
+    MyColorDirective,
+    HeightAdjusterDirective
   ],
   imports: [
     BrowserModule,

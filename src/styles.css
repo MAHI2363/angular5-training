@@ -2,3 +2,7 @@
 .my-color{
     border: 10px dotted black;
 }
+
+.height-adjuster {
+    overflow-y: scroll;
+}
