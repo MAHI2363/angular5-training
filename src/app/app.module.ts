@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -13,6 +15,9 @@ import { AddCategoryComponent } from './components/add-category/add-category.com
 import { EmpNamePipe } from './emp-name.pipe';
 import { MyColorDirective } from './my-color.directive';
 import { HeightAdjusterDirective } from './height-adjuster.directive';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +29,17 @@ import { HeightAdjusterDirective } from './height-adjuster.directive';
     AddCategoryComponent,
     EmpNamePipe,
     MyColorDirective,
-    HeightAdjusterDirective
+    HeightAdjusterDirective,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,    
+    AppRoutingModule
   ],
   providers: [
     EmployeeService

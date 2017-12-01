@@ -7,7 +7,10 @@
     ></app-header>
   
 </div>
-<div appHeightAdjuster class="row">
+<div class="row">
+  <router-outlet></router-outlet>
+</div>
+<div class="row">
     {{ 10 | currency }}
 
     {{ 1512004779377 | date }}
